@@ -5,7 +5,8 @@ const express = require("express");
 const cloudinary = require("cloudinary");
 const router = express.Router();
 
-// create new message
+
+// create a new message
 router.post(
   "/create-new-message",
   catchAsyncErrors(async (req, res, next) => {
@@ -59,6 +60,7 @@ router.get(
         messages,
       });
     } catch (error) {
+      //error handling
       return next(new ErrorHandler(error.message), 500);
     }
   })
