@@ -16,7 +16,8 @@ router.post(
       const shopId = req.body.shopId;
       const shop = await Shop.findById(shopId);
       if (!shop) {
-        return next(new ErrorHandler("Shop Id is invalid!", 400));
+        
+        return next(new ErrorHandler ("Shop Id is invalid!", 400));
       } else {
         let images = [];
 
@@ -25,7 +26,8 @@ router.post(
         } else {
           images = req.body.images;
         }
-      
+
+
         const imagesLinks = [];
       
         for (let i = 0; i < images.length; i++) {
@@ -38,7 +40,6 @@ router.post(
             url: result.secure_url,
           });
         }
-      
         const productData = req.body;
         productData.images = imagesLinks;
         productData.shop = shop;
@@ -51,12 +52,12 @@ router.post(
         });
       }
     } catch (error) {
-      return next(new ErrorHandler(error, 400));
+      return next (new ErrorHandler(error, 400));
     }
   })
 );
 
-// get all products of a shop
+// get all products from a shop
 router.get(
   "/get-all-products-shop/:id",
   catchAsyncErrors(async (req, res, next) => {
