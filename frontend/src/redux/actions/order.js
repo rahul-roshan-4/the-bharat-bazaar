@@ -13,9 +13,11 @@ export const getAllOrdersOfUser = (userId) => async (dispatch) => {
     );
 
     dispatch({
+      
       type: "getAllOrdersUserSuccess",
       payload: data.orders,
     });
+    
   } catch (error) {
     dispatch({
       type: "getAllOrdersUserFailed",
@@ -24,7 +26,7 @@ export const getAllOrdersOfUser = (userId) => async (dispatch) => {
   }
 };
 
-// get all orders of seller
+// get all orders of a seller
 export const getAllOrdersOfShop = (shopId) => async (dispatch) => {
   try {
     dispatch({
@@ -47,7 +49,7 @@ export const getAllOrdersOfShop = (shopId) => async (dispatch) => {
   }
 };
 
-// get all orders of Admin
+// get all orders of the Admin
 export const getAllOrdersOfAdmin = () => async (dispatch) => {
   try {
     dispatch({
